@@ -1,0 +1,28 @@
+
+body {
+  height: 2000px;
+  background-image: url("../img/logo.png");
+  background-repeat:no-repeat;
+  background-position-x:center;
+  background-position-y:center;
+  background-size: 160rem;
+}
+
+body {
+  
+  background-image: url("../img/logo.png");
+  position: relative;
+}
+
+
+/* Overlay oscuro para contraste */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(240, 106, 206, 0.37);
+  z-index: -1;
+}
+
+

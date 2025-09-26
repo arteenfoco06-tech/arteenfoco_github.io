@@ -1,0 +1,159 @@
+/* ================================
+   RESET GENERAL
+   ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   ESTILOS BASE
+   ================================ */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #a3a3ce;
+  color: #0e0d0d;
+  padding-top: 150px; /* espacio para el header fijo */
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: #ff00b3;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #f208fa;
+}
+
+/* ================================
+   HEADER Y NAVEGACIÓN
+   ================================ */
+header {
+  background: #c581bf;
+  color: #ebdbe8;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #e9e2e9;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ff9800;
+}
+
+/* ================================
+   SECCIONES PRINCIPALES
+   ================================ */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Cada sección tendrá espacio entre sí */
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #d8ced7;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Títulos dentro de las secciones */
+section h2 {
+  margin-bottom: 15px;
+  color: #333;
+  border-left: 5px solid #ff00dd;
+  padding-left: 10px;
+}
+
+/* ================================
+   ARTÍCULOS Y CONTENIDO
+   ================================ */
+article {
+  margin-bottom: 20px;
+}
+
+article h3 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+article p {
+  text-align: justify;
+}
+
+/* ================================
+   ASIDE (contenidos adicionales)
+   ================================ */
+aside {
+  background: #e47bc9;
+  padding: 15px;
+  border-left: 4px solid #ff00ff;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+footer {
+  text-align: center;
+  background: #222;
+  color: #ee7df1;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* ================================
+   DISEÑO RESPONSIVE
+   ================================ */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  section {
+    padding: 15px;
+  }
+}
