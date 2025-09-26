@@ -1,7 +1,7 @@
 
 body {
   height: 2000px;
-  background-image: url("../img/logo.png");
+  background-image: url("logo.png");
   background-repeat:no-repeat;
   background-position-x:center;
   background-position-y:center;
@@ -10,7 +10,7 @@ body {
 
 body {
   
-  background-image: url("../img/logo.png");
+  background-image: url("logo.png");
   position: relative;
 }
 
@@ -24,5 +24,6 @@ body::before {
   background: rgba(240, 106, 206, 0.37);
   z-index: -1;
 }
+
 
 
