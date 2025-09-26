@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Web</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style3.css">
+
+  <style>
+    /* ====== Scroll suave ====== */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ====== Ajuste global ====== */
+    body {
+      background: url("img/logo.png") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* ====== Contenedor en CUADROS ====== */
+    .cuadro {
+      background: rgba(255, 228, 240, 0.85); /* Rosa pastel */
+      padding: 25px;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 1000px;
+      border-radius: 15px;
+      border: 1.5px solid #f4a7c1; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .cuadro h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    /* ====== Tarjetas (Cards) ====== */
+    .card {
+      background: rgba(245, 187, 237, 0.918);
+      padding: 20px;
+      margin: 05px;
+      border-radius: 10px;
+      border: 1.5px solid #fc4789;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      flex: 1 1 calc(50% - 20px); /* dos cuadros */
+      min-width: 280px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #444;
+    }
+
+    #servicios ul {
+      padding-left: 20px;
+    }
+
+    /* ====== Layout en dos columnas ====== */
+    .row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* ====== Contenedor general de servicios ====== */
+    .contenedor-servicios {
+      border: 2px solid #cf6073;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+      background: #eecdd459;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    /* ====== Galería ====== */
+    section.Arte {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    section.Arte img {
+      width: 0px;
+      flex-grow: 1;
+      object-fit: cover;
+      opacity: .8;
+      transition: .5s ease;
+      border-radius: 8px;
+    }
+
+    section.Arte img:hover {
+      cursor: crosshair;
+      width: 300px;
+      opacity: 1;
+      filter: contrast(120%);
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      background: #222;
+      color: #e20f9c;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #f1edf0;
+      text-decoration: none;
+    }
+
+    /* ====== Botón "Conoce nuestros servicios" ====== */
+    .btn-servicios {
+      display: inline-block;
+      background-color: #ff066a;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-servicios:hover {
+      background-color: #eee4e9;
+    }
+
+    /* ====== Carrusel de servicios ====== */
+    .carrusel-contenedor {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-top: 40px;
+      padding: 20px 0;
+    }
+
+    .carrusel-inner {
+      display: flex;
+      animation: carrusel-movimiento 10s linear infinite;
+    }
+
+    .carrusel-item {
+      min-width: 300px;
+      margin: 0 15px;
+      flex: 0 0 auto;
+    }
+
+    .carrusel-item .card {
+      padding: 30px;
+      background-color: #fa59bc48;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* Animación del carrusel */
+    @keyframes carrusel-movimiento {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ====== Centrado de secciones ====== */
+    #nosotros .contenedor-servicios,
+    #servicios .contenedor-servicios {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra los elementos horizontalmente */
+      text-align: center;
+    }
+
+    #nosotros .row,
+    #servicios .row {
+      justify-content: center; /* Distribuye el espacio de manera uniforme entre los elementos */
+      max-width: 900px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" width="100" alt="logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/nosotros.html">Nosotros</a></li>
+          <li><a href="pages/servicios.html">Servicios</a></li>
+          <li><a href="pages/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="presentacion">
+       <div class="contenido-presentacion"></div>
+      <h2>Arte en Foco</h2>
+      <p>
+        Somos un estudio fotográfico especializado en la mejora
+        y restauración de imágenes, dedicado a rescatar la esencia
+        de cada recuerdo. Nuestro trabajo no solo consiste en retocar
+        fotografías: buscamos devolverles vida, color y emoción a esos
+        momentos únicos que merecen ser preservados.
+      </p>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="#servicios" class="btn-servicios">Conoce nuestros servicios</a>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="contenedor-servicios">
+        <h2>Sobre Nosotros</h2>
+
+        <div class="row" style="display:flex; gap:20px; justify-content:space-between; flex-wrap:nowrap;">
+          <div class="card" style="flex:0 0 48%; min-width:280px;">
+            <h3>Nuestra Historia</h3>
+            <p>
+              En el año 2024 nació Arte en Foco, un estudio fotográfico con una misión clara:
+              mejorar y restaurar imágenes para que los recuerdos más valiosos nunca se pierdan...
+            </p>
+          </div>
+
+          <div class="card" style="flex:0 0 48%; min-width:280px;">
+            <h3>Misión y Visión</h3>
+            <p>
+              <strong>Misión:</strong> Mejorar y restaurar imágenes para preservar
+              los recuerdos más valiosos de las personas.<br><br>
+              <strong>Visión:</strong> Ser un estudio fotográfico reconocido a 
+              nivel nacional e internacional por nuestra excelencia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      
+      <div class="contenedor-servicios">
+
+        <h2>Servicios</h2>
+
+        <div class="row" 
+        style="display:flex; gap:20px; justify-content:space-evenly; flex-wrap:nowrap;">
+          <div class="card"
+           style="flex:0 0 48%; min-width:280px;">
+            <h3>Servicio 1</h3>
+            <p>
+              Retoque fotográfico profesional, restauración de fotos antiguas, mejora de calidad de imágenes,
+              edición artística y creativa, digitalización y organización de recuerdos, servicios para empresas y marcas.
+            </p>
+          </div>
+
+          <div class="card servicio">
+            <h3>Servicio 2</h3>
+            
+            <ul>
+              <li>✔ Corrección de color, iluminación y contraste.</li>
+              <li>✔ Eliminación de imperfecciones.</li>
+              <li>✔ Optimización de retratos.</li>
+              <li>✔ Recuperación de fotografías dañadas por el tiempo.</li>
+              <li>✔ Reconstrucción de partes faltantes y mejora de nitidez.</li>
+              <li>✔ Conservación digital de recuerdos familiares e históricos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="carrusel-servicios">
+      <div class="carrusel-contenedor">
+        <div class="carrusel-inner">
+          <div class="carrusel-item">
+            <div class="card">
+              <h3>Diseño y Publicidad</h3>
+              <p>
+                Servicios de diseño gráfico, creación de logotipos, material
+                publicitario y gestión de redes sociales para potenciar tu marca.
+              </p>
+            </div>
+          </div>
+          <div class="carrusel-item">
+            <div class="card">
+              <h3>Eventos Especiales</h3>
+              <p>
+                Cobertura fotográfica profesional para bodas, quinceañeras,
+                eventos corporativos y cualquier celebración importante.
+              </p>
+            </div>
+          </div>
+          <div class="carrusel-item">
+            <div class="card">
+              <h3>Estudio Creativo</h3>
+              <p>
+                Sesiones de fotos personalizadas en estudio con equipos de
+                última generación, maquillaje profesional y dirección artística.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="Arte">
+    <img src="img/imagen4.jpeg" alt="imagen4">
+    <img src="img/imagen2.jpeg" alt="imagen2">
+    <img src="img/imagen3.jpeg" alt="imagen3">
+    <img src="img/imagen1.jpeg" alt="imagen1">
+  </section>
+</main>
+
+  <footer>
+    <p>&copy; 2025 Arte en Foco- Todos los derechos reservados</p>
+    <p>Contacto: <a href="mailto:arte.en.foco.06@gmail.com">arte.en.foco.06@gmail.com</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
